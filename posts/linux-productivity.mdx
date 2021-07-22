@@ -1,0 +1,92 @@
+---
+title: Linux for productivity, A newbies guide
+description: in this guide, I go over how to turn linux (arch specifically) into a productivity machine in less than a day
+date: '2021-07-22'
+---
+
+unlike some popular opinions, you can be very productive when using linux, in this guide I'll show you how !
+
+## Linux is not good for you if...
+- You absolutly need to play every new game that comes out
+> it is important to note that with Valve's proton 75% of games work perfectly with no workarounds in linux, only some competitive online games arent available
+- you need Adobe products and you can't use an alternative for some reason
+
+now that is out of the way, let's get started.
+
+---
+
+once you are done with this guide, you will have a **privacy respecting customized system that is fully controlled by your keyboard** (you can actually ditch your mouse !).
+
+## Requirments
+- A usb stick with 4Gb or more storage
+- internet connection
+## Setting up a bootable USB
+### getting the ISO
+the first step is to get the ISO and burn it into our USB stick, open the <a href="https://archlinux.org/download" target="_blank">download page for arch linux</a> and scroll down then select the closest server to you. you will get a table showing different installation files for arch, click the one that ends with `x86_64.iso`.
+### burning the ISO into a USB stick
+plug the USB stick into your pc, if you are in windows, you can use <a href="https://rufus.ie" target="_blank" >rufus</a>, install it and select the USB and ISO you just downloaded and click `start`.
+
+## Installing arch linux
+reboot your computer, make sure the USB is still plugged in, once the manifacurer's logo appears **click on each one of the Fn keys until the bios shows up**, each pc manifacturer uses a different key for entering the BIOS, I just click every key to avoid having to look it up. now move to the `boot` tab, you should see a list different bootable devices move the one that correspondes to your USB to the top of the list. finally save and exit the BIOS.
+
+### Internet Connection
+if you have a cable connection, internet should work fine if you use wifi I'll go over how to get your wifi setup
+> to check if you have internet or not, run `ping google.com` if multiple results are returned then you have internet and you can move on.
+
+in case internet is not working for you run `iwctl` then run the following commands replacing `device` with the device you got from the first command and `SSID` with your network name.
+```bash
+device list
+station device scan
+station device get-networks
+station device connect SSID
+```
+> The user interface supports autocomplete, by typing station and `Tab` `Tab`, the available devices are displayed, type the first letters of the device and `Tab` to complete. The same way, type connect and `Tab` `Tab` in order to have the list of available networks displayed. Then, type the first letters of the chosen network followed by `Tab` in order to complete the command.
+
+### use archfi to install arch quickly
+run the following command to install archfi, the installer script we are going to use for this guide.
+```bash
+curl -L archfi.sf.net/archfi > archfi
+```
+
+then run this to launch it
+```bash
+sh archfi
+```
+from here, I think most people can go through each option and select what they need. but in case you get stuck, techhut made a great video about archfi, go check that out !
+**if you want to make the most out of linux, do not install a Desktop Environment** we will use a tilling window manager instead
+<iframe width="600" height="339" src="https://www.youtube.com/embed/u2l54FMgWq4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+once that done, you should be able to reboot into your arch install, if you get a login screen then everything should be good
+
+### Larbs, the secret componenent
+larbs is a bootstrapping script, with it you get a fully fledged tilling window manager, with keyboards shortcuts, the installation should not take about 15 minutes and you will be ready to go.
+to get started run this to install larbs
+```bash
+sudo curl -LO larbs.xyz/larbs.sh
+```
+then run this to launch it
+```bash
+sudo sh larbs.sh
+```
+when asked for your username, if you created a use with archfi, enter it here, if not pick a name for your new user and its password. the rest of the installation is automatic
+
+and that's it, once you reboot and log in, your system should be up and running ! here is how it should look like
+
+<Image
+  alt={`LARBS system`}
+  src={`/images/larbs-system.png`}
+  width={1440}
+  height={960}
+  priority
+/>
+
+## A few tips and tricks
+- press `Windows+F1` to launch a PDF that covers most of what larbs can do
+- press `Windows+enter` to open a terminal, you can practiclly launch any program from there
+- press `Windows+d` to launch dmenu where you can type the name of a program to launch it
+- `Windows+WORKSPACE_NUMBER` to switch to that workspace
+- `windows+j` or `windows+k` to move between windows
+- `windows+h` or `windows+l` to resize windows
+- and finally `windows+shift+WORKSPACE_NUMBER` will move the selected window to that workspace
+
+That was it, thanks for reading and have a good day !
