@@ -9,7 +9,7 @@ type LayoutProps = {
   customMeta?: MetaProps;
 };
 
-export const WEBSITE_HOST_URL = 'https://nextjs-typescript-mdx-blog.vercel.app';
+export const WEBSITE_HOST_URL = 'https://youssefbouzekri.vercel.app';
 
 const Layout = ({ children, customMeta }: LayoutProps): JSX.Element => {
   // themeSwitch is going to wait unitl I get the light theme right

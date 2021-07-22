@@ -8,9 +8,9 @@ export const WEBSITE_HOST_URL = 'https://nextjs-typescript-mdx-blog.vercel.app';
 const Head = ({ customMeta }: { customMeta?: MetaProps }): JSX.Element => {
   const router = useRouter();
   const meta: MetaProps = {
-    title: 'Hunter Chang - Website',
+    title: 'Youssef Bouzekri - Website',
     description:
-      'Sleep Deprived Father. Senior Web Developer. Lover of all things Ramen and Kpop.',
+      'Computer science student, I stare at a computer all day long and sometimes I write about it',
     image: `${WEBSITE_HOST_URL}/images/site-preview.png`,
     type: 'website',
     ...customMeta,
