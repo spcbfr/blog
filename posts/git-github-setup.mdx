@@ -1,0 +1,45 @@
+---
+title: How to setup git and github
+description: I love git and use it a lot, I figured it would be nice if I made a tutorial for all of you out there who are still struggling with git and how to get into it 
+date: '2021-07-25'
+---
+
+I love git and use it a lot, since I am always testing out new linux distros I figured it would be nice if I made a post on how to set it up to get into coding right away
+
+## First, what is git and what is github ?
+_Git_ is a **Version Control System** (VCS), it tracks the changes made to your files and allows you to revert back to those changes, while _GitHub_ is a **Remote Hosting Service** for git, it allows users to collaborate on projects that use git. GitHub is also great if you want to backup personal stuff, as it provides users with free unlimited private repos, wait but what is a repo ?
+### What is a repositorie ?
+a repositorie (aka repo) is where git's magic happens, simply put, a repo is a folder that was initialiased with git, repos can be remote (uploaded to a hosting service) or local (only on your machine).
+to initialise a repo, fire up a terminal and make sure you have git installed (we will get to installing git in a second) and enter this command
+```bash
+$ git init
+```
+### Commits
+a _commit_ is an **operation that sends the latest changed source code to the repo**, as a best practise commits should not contain a lot of code, for example if you are developing a website keep each new feature, bug fix or even a typo, in its own commit. commits could also have _Commit Messages_ a commit message could look something like this `Fixed a bug that caused the program to crash on windows` `Added a comment section`.
+here is how you can commit to git:
+```bash
+git add . # stage all changes that will be included in the commit
+# you can also stage individual files using git add hello_world.py
+git commit -m "your commit message here"
+```
+
+## Installing Git
+### Linux & Mac
+if you are using either linux or macos, you probobly already have git installed on your system. if not you can find it in your distro's offical repos.
+> Fun Fact: linus Torvalds, the guy who developed the linux Operating System, also developed git because he BitKeeper, the old VCS he was using became paid so he decided to make his own
+
+### Windows
+Open [git's website](https://git-scm.com/downloads) and click download, then open up the .exe file and go through the installer
+
+## Git Identity
+First you need to set your name and email, this is used to keep track on who made which changes while working in a time. to do that open up a terminal and enter the following commands
+```bash
+$ git config --global user.name "Your Name"
+$ git config --global user.email "yourname@example.com"
+```
+Here we use the _--global_ switch to indicate that the following config will be used as the default for every repo, if you do not use the global switch, git override that config only for the repo that you are currently in.
+
+from here, you can start working with git locally and all that fun stuff, but most lickly you will want to upload your code to a remote server, that is what I'll cover in the next section
+## Making a github account
+to create a github account, open up [github's website](https://github.com), and create an account. **make sure to use the same email you used in the previous step.** also carefully pick your username as changing that would be a huge hastle in the future.
+Congrats ! you just created your github account and linked it with git, which means you can start using git to keep track of your projects ! of course you still have to learn how git works, for that I recommend this [tutorial series](https://www.youtube.com/watch?v=sH4fr8eQHaE&list=PLJGDHERh23x_4MDp0m4Arswm5VErr3tbl) by DevInsideYou if you are into watching videos, in case you want something more in-depth, there is the official [pro git](https://git-scm.com/book/en/v2) book that is avalaible for free !
