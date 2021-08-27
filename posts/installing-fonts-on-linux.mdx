@@ -1,0 +1,41 @@
+---
+title: How to install fonts (manually) on linux
+description: In this guide I go through how to install any font on linux using the command line.
+date: '2021-08-27'
+---
+
+I always avoided installing fonts on linux because it seemed so scary, and one of the _few_ things I liked about windows was that I could quickly install any font just by opening it and clicking install, which something I didn't get in my minimal arch linux build. so I had to either look up the font on the AUR (Arch User Repositories) or simply give up on using it. after some research, I realised that **installing fonts manually through the terminal is waaay easier then the traditional windows way !**
+
+Let's get started !
+
+first download the font you want. I recommend [Google Fonts](https://fonts.google.com) or [Font squirrel](https://fontsquirrel.com/), usually the font comes as a .zip file, run **unzip** to extract it. here is an example
+
+```bash
+unzip JetbrainsMono.zip
+```
+
+to actually _install_ the font, you only need to move it to where it should be, in most linux distro's that is `/usr/share/fonts` but you can check that by running the `fc-list` command, that will list the path to every font you have installed on your system, it will look something like this.
+
+```
+...
+/usr/share/fonts/noto/NotoLoopedLao-Thin.ttf: Noto Looped Lao,Noto Looped Lao Thin:style=Thin,Regular
+/usr/share/fonts/noto/NotoSerifDevanagari-Regular.ttf: Noto Serif Devanagari:style=Regular
+/usr/share/fonts/noto/NotoRashiHebrew-Black.ttf: Noto Rashi Hebrew,Noto Serif Hebrew Blk:style=Black,Regular
+/usr/share/fonts/noto/NotoSerifTangut-Regular.ttf: Noto Serif Tangut:style=Regular
+...
+```
+notice how each font starts with /usr/share/fonts
+
+so now simply move the extracted folder to your fonts folder using the `mv` command, you may need root permissions
+
+```bash
+sudo mv JetbrainsMono /usr/share/fonts/
+```
+
+> it does not matter if fonts are directly inside the fonts folder or in a folder inside there, but generally if you want a clean system multiple folders are recommended
+
+and that's it now to make sure you have the font, you can once again use fc-list but with the **grep** command to filter down the results
+
+```bash
+fc-list | grep JetbrainsMono
+```
